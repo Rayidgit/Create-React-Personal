@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics exercise 01</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const button = <button>Good job!</button>;
+      const paragraph = <p>My name is Simon</p>;
+
+      const item = <p>Cotton socks</p>;
+      const price = <p>Price: $10</p>;
+      const addCartButton = <button>Add to Cart</button>;
+      const productCost = 10 + 8*2;
+      console.log(productCost);
+
+      const shippingCost = 5;
+      const totalCost = productCost + shippingCost;
+
+      const today = dayjs().format('MMMM D');
+      console.log(today);
+
+      
+
+      const cartItem = (
+        <>
+          <p>Cotton socks</p>
+          <p>Price: $10</p>
+          <button>Add to Cart</button>
+        </>
+      );
+
+      const orderSummary = (
+        <>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${totalCost}</p>
+          <button>Place your order</button>
+        </>
+      );
+      
+      const displayDate = (
+        <>
+          <p>Today is {today}</p>
+        </>
+      );
+
+      // let currentTime = dayjs().format('HH:mm:ss');
+      // console.log(currentTime);
+
+      // const displayCurrentTime = (
+      //   <>
+      //     <p>Current time: {currentTime}</p>
+      //   </>
+      // );
+      
+      // const container = document.querySelector('.js-container');
+      // const root = ReactDOM.createRoot(container);
+      // root.render(displayCurrentTime);
+
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+
+      setInterval(() => {
+        let currentTime = dayjs().format('HH:mm:ss');
+        console.log(currentTime);
+
+        const displayCurrentTime = (
+          <>
+            <p>Current time: {currentTime}</p>
+          </>
+        );
+        
+        root.render(displayCurrentTime);
+      }, 1000);
+      
+
+    </script>
+  </body>
+</html>
